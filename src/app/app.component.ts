@@ -8,11 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app-books';
 
-  SignUp() {
-    alert('Pressed button <SignUp>');
-  }
-
-  LogIn() {
-    alert('Pressed button <LogIn>');
-  }
 }

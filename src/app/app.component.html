@@ -5,17 +5,18 @@
 </head>
 
 <body>
-  <h1>Welcome to the library</h1>
-  <p>
-    Dear user,<br>if you are newcomer kindly SignUp otherwise LogIn.
-  </p>
 
-  <br>
+  <ul class="links">
+    <li><a routerLink="" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/signup" routerLinkActive="active">SignUp</a></li>
+    <li><a routerLink="/login" routerLinkActive="active">LogIn</a></li>
+    <li><a routerLink="/books" routerLinkActive="active">Books</a></li>
+  </ul>
 
-  <div>
-    <button (click)="SignUp()">SignUp</button>
-    <button (click)="LogIn()">LogIn</button>
-  </div>
+  <h1>Angular Book-Store Application</h1>
+  <hr>
+
+  <router-outlet></router-outlet>
 
 </body>
 
