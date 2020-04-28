@@ -1,39 +1,37 @@
 <div [hidden]="submitted">
   <h2>SIGNUP</h2>
-
   <form (ngSubmit)="onSubmit()" #userForm="ngForm">
 
     <div class="form-group">
       <label for="name">User name:</label><br>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
-      <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color: red">
+      <input type="text" id="name" required [(ngModel)]="user.name" name="name" #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="err-msg">
         Name is required
       </div>
     </div>
 
     <br>
 
-    <div class="form-group">
+    <div>
       <label for="passw">Password:</label><br>
-      <input type="text" class="form-control" id="passw" [(ngModel)]="model.password" name="passw" value=""><br><br>
+      <input type="text" id="passw" [(ngModel)]="user.password" name="passw" value=""><br><br>
     </div>
 
-    <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">New User</button>
+    <button type="submit" [disabled]="userForm.form.invalid">New User</button>
 
   </form>
-
 </div>
 
 
 <div [hidden]="!submitted">
   <h4>You submitted the following:</h4>
   <div>
-    <div style="font-style: italic">name:</div>
-    <div>{{ model.name }}</div>
+    <div class="subm-txt">name:</div>
+    <div>{{ user.name }}</div>
   </div><br>
   <div>
-    <div style="font-style: italic">password:</div>
-    <div>{{ model.password }}</div>
+    <div class="subm-txt">password:</div>
+    <div>{{ user.password }}</div>
   </div>
   <br>
   <button (click)="submitted=false">Edit</button>
