@@ -6,11 +6,10 @@
   <h3>List of books:</h3>
 
   <div>
-    <ol>
-      <li>First - Book1</li>
-      <li>Second - Book2</li>
-      <li>Third - Book3</li>
-    </ol>
+    <ul *ngFor="let book of books">
+      <li>{{book.author}}, {{book.title}}, {{book.publik}},
+        {{book.pages}}, {{book.genre}}</li>
+    </ul>
   </div>
 
 </body>
