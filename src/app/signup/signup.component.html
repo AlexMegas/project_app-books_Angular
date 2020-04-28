@@ -1,11 +1,11 @@
-<div [hidden]="submitted">
+<div *ngIf="!submitted">
   <h2>SIGNUP</h2>
   <form (ngSubmit)="onSubmit()" #userForm="ngForm">
 
-    <div class="form-group">
+    <div>
       <label for="name">User name:</label><br>
       <input type="text" id="name" required [(ngModel)]="user.name" name="name" #name="ngModel">
-      <div [hidden]="name.valid || name.pristine" class="err-msg">
+      <div class="err-msg" *ngIf="name.invalid">
         Name is required
       </div>
     </div>
@@ -14,7 +14,11 @@
 
     <div>
       <label for="passw">Password:</label><br>
-      <input type="text" id="passw" [(ngModel)]="user.password" name="passw" value=""><br><br>
+      <input type="text" id="passw" [(ngModel)]="user.password" name="passw" #password="ngModel">
+      <div class="err-msg" *ngIf="password.invalid">
+        Password is required
+      </div>
+      <br><br>
     </div>
 
     <button type="submit" [disabled]="userForm.form.invalid">New User</button>
@@ -23,7 +27,7 @@
 </div>
 
 
-<div [hidden]="!submitted">
+<div *ngIf="submitted">
   <h4>You submitted the following:</h4>
   <div>
     <div class="subm-txt">name:</div>
