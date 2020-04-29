@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
 
 import { Book } from '../models/book';
+import {IBook} from "../models/IBook";
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -9,12 +10,12 @@ import { Book } from '../models/book';
 })
 export class BooksComponent implements OnInit {
 
-  public books = [];
+  public books: IBook[] = [];
 
-  constructor(private _bookService: BookService) { }
+  constructor(private bookService: BookService) { }
 
   ngOnInit() {
-    this.books = this._bookService.getBooks();
+    this.books = this.bookService.getBooks();
   }
 
 }
