@@ -10,18 +10,12 @@
       <tr>
         <th>Author</th>
         <th>Title</th>
-        <th>Public</th>
-        <th>Pages</th>
-        <th>Genre</th>
-        <th></th>
+        <th>Description</th>
       </tr>
       <tr *ngFor="let book of books">
         <td>{{book.author}}</td>
         <td>{{book.title}}</td>
-        <td>{{book.publik}}</td>
-        <td>{{book.pages}}</td>
-        <td>{{book.genre}}</td>
-        <td><button (click)="navigateToBook(book._id)">Goto</button></td>
+        <td><button (click)="navigateToBook(book._id)">GoTo</button></td>
       </tr>
     </table>
   </div>

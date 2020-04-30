@@ -3,9 +3,6 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { BookService } from '../services/book.service';
 import { IBook } from "../models/IBook";
 
-// import { Observable } from 'rxjs';
-// import { switchMap } from 'rxjs/operators';
-
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -14,7 +11,8 @@ import { IBook } from "../models/IBook";
 export class BookComponent implements OnInit {
 
   constructor(private bookService: BookService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   public book: IBook = null;
@@ -23,12 +21,14 @@ export class BookComponent implements OnInit {
 
     let id = this.route.snapshot.paramMap.get('id');
 
-    // console.log(id);
-    
     this.bookService.getBookById(id)
       .then(res => {
         this.book = res.book;
       });
+  }
+
+  gotoBack() {
+    this.router.navigate(['/books']);
   }
 
 }
