@@ -6,15 +6,22 @@
   <h3>List of books:</h3>
 
   <div>
-<!--    TODO: Show in table-->
-    <ul *ngFor="let book of books">
-      <li>{{book.author}}</li>
-      <li>{{book.title}}</li>
-      <li>{{book.publik}}</li>
-      <li>{{book.pages}}</li>
-      <li>{{book.genre}}</li>
-      <hr>
-    </ul>
+    <table>
+      <tr>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Public</th>
+        <th>Pages</th>
+        <th>Genre</th>
+      </tr>
+      <tr *ngFor="let book of books">
+        <td>{{book.author}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.publik}}</td>
+        <td>{{book.pages}}</td>
+        <td>{{book.genre}}</td>
+      </tr>
+    </table>
   </div>
 
 </body>

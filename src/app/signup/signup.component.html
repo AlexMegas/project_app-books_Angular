@@ -15,9 +15,6 @@
     <div>
       <label for="passw">Password:</label><br>
       <input type="text" id="passw" [(ngModel)]="user.password" name="passw" #password="ngModel">
-      <div class="err-msg" *ngIf="password.invalid">
-        Password is required
-      </div>
       <br><br>
     </div>
 
