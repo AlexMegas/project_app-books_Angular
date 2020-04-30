@@ -3,25 +3,25 @@
 
 <body>
 
-  <h3>List of books:</h3>
+  <h2>Requested book is:</h2>
 
   <div>
-    <table>
+    <table *ngIf="book">
       <tr>
         <th>Author</th>
         <th>Title</th>
         <th>Public</th>
         <th>Pages</th>
         <th>Genre</th>
-        <th></th>
+        <th>Owner</th>
       </tr>
-      <tr *ngFor="let book of books">
+      <tr>
         <td>{{book.author}}</td>
         <td>{{book.title}}</td>
         <td>{{book.publik}}</td>
         <td>{{book.pages}}</td>
         <td>{{book.genre}}</td>
-        <td><button (click)="navigateToBook(book._id)">Goto</button></td>
+        <td>{{book.owner}}</td>
       </tr>
     </table>
   </div>
