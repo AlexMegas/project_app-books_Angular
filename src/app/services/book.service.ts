@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { books } from "../data/book";
 import {Book} from "../models/book";
 import {IBook} from "../models/IBook";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +11,9 @@ import {IBook} from "../models/IBook";
 
 export class BookService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  // getBooks(): Book[] {
-  getBooks(): IBook[] {
-    return books;
+  getBooks(): Promise<IBook[]> {
+    return this.http.get<IBook[]>('http://loca....').toPromise();
   }
 }
