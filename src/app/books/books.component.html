@@ -13,7 +13,7 @@
         <th>Description</th>
       </tr>
       <tr *ngFor="let book of books">
-        <td>{{book.author}}</td>
+        <td (click)="navigateToAuthor(book.author)">{{book.author}}</td>
         <td>{{book.title}}</td>
         <td><button (click)="navigateToBook(book._id)">GoTo</button></td>
       </tr>

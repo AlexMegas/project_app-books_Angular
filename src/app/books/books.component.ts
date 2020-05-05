@@ -9,11 +9,11 @@ import { IBook } from "../models/IBook";
 })
 export class BooksComponent implements OnInit {
 
-  url: string = 'http://localhost:4200/book/';
   public books: IBook[] = [];
 
   constructor(private bookService: BookService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.bookService.getBooks()
@@ -24,6 +24,10 @@ export class BooksComponent implements OnInit {
 
   navigateToBook(id) {
     this.router.navigate(['/book', id]);
+  }
+
+  navigateToAuthor(author) {
+    this.router.navigate(['/book'], { queryParams: { author: author } });
   }
 
 }

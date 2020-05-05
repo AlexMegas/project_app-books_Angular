@@ -3,29 +3,27 @@
 
 <body>
 
-  <h2>Requested book is:</h2>
+  <div *ngFor="let book of book; let i=index">
+    <h2 *ngIf="i==0">Requested book/s by {{book.author}} :</h2>
+  </div>
 
   <div>
     <table *ngIf="book">
       <tr>
-        <th>Author</th>
         <th>Title</th>
         <th>Public</th>
         <th>Pages</th>
         <th>Genre</th>
-        <th>Owner</th>
       </tr>
-      <tr>
-        <td>{{book.author}}</td>
+      <tr *ngFor="let book of book">
         <td>{{book.title}}</td>
         <td>{{book.publik}}</td>
         <td>{{book.pages}}</td>
         <td>{{book.genre}}</td>
-        <td>{{book.owner}}</td>
       </tr>
     </table>
   </div>
-  
+
   <br>
   <button id="gotoItems" (click)="gotoItems()">Back</button>
 </body>

@@ -15,6 +15,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { BookService } from './services/book.service';
 import { BookComponent } from './book/book.component';
+import { AuthorComponent } from './author/author.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BookComponent } from './book/book.component';
     BooksComponent,
     HomeComponent,
     NotFoundComponent,
-    BookComponent
+    BookComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,

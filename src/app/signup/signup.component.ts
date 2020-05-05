@@ -8,7 +8,7 @@ import { User } from '../models/user';
 })
 export class SignupComponent implements OnInit {
 
-  user = new User('testName', 'testPassw');
+  user = new User('alex1', 'password1');
   submitted = false;
   onSubmit() { this.submitted = true; }
 
