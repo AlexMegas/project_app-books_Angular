@@ -26,8 +26,13 @@ export class BooksComponent implements OnInit {
     this.router.navigate(['/book', id]);
   }
 
+  navigateToDeleteBook(id) {
+    this.router.navigate(['/book', id]);
+  };
+
   navigateToAuthor(author) {
     this.router.navigate(['/book'], { queryParams: { author: author } });
   }
+
 
 }

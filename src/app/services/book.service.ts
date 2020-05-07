@@ -25,4 +25,8 @@ export class BookService {
     return this.http.get<{ books: IBook[] }>(`${this.url}`).toPromise();
   }
 
+  deleteBook(id: string): Promise<any> {
+    return this.http.delete<any>(`${this.url}/${id}`).toPromise();
+  }
+
 }

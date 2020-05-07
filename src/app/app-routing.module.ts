@@ -8,14 +8,19 @@ import { BookComponent } from './book/book.component';
 import { AuthorComponent } from './author/author.component';
 import { BooksComponent } from './books/books.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './auth/auth.guard';
+import { DeletebookComponent } from './deletebook/deletebook.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
+  { path: 'book/:id', component: DeletebookComponent },
   { path: 'book/:id', component: BookComponent },
   { path: 'book', component: AuthorComponent },
-  { path: 'books', component: BooksComponent },
+  { path: 'books', component: BooksComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotFoundComponent }
 ];
 

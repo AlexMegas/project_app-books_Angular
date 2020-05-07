@@ -7,14 +7,15 @@
 <body>
 
   <div class="bground">
-  <ul class="links">
-    <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
-    <li><a routerLink="/signup" routerLinkActive="active">SignUp</a></li>
-    <li><a routerLink="/login" routerLinkActive="active">LogIn</a></li>
-    <li><a routerLink="/books" routerLinkActive="active">Books</a></li>
-  </ul>
+    <ul class="links">
+      <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+      <li><a routerLink="/signup" routerLinkActive="active" *ngIf="!userService.loggedIn()">SignUp</a></li>
+      <li><a routerLink="/login" routerLinkActive="active" *ngIf="!userService.loggedIn()">LogIn</a></li>
+      <li><a routerLink="/logout" routerLinkActive="active" *ngIf="userService.loggedIn()">LogOut</a></li>
+      <li><a routerLink="/books" routerLinkActive="active">Books</a></li>
+    </ul>
 
-  <h1>Book - Store</h1>
+    <h1>Book - Store</h1>
   </div>
   <hr>
 

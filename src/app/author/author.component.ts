@@ -22,8 +22,6 @@ export class AuthorComponent implements OnInit {
     this.bookService.getBookByQuery(author)
       .then(res => {
         this.book = res.book;
-        console.log(this.book);
-        
       });
 
   };

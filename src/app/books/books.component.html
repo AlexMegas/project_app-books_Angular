@@ -15,7 +15,10 @@
       <tr *ngFor="let book of books">
         <td (click)="navigateToAuthor(book.author)">{{book.author}}</td>
         <td>{{book.title}}</td>
-        <td><button (click)="navigateToBook(book._id)">GoTo</button></td>
+        <td>
+          <button (click)="navigateToBook(book._id)">GoTo</button>
+          <button (click)="navigateToDeleteBook(book._id)">Delete</button>
+        </td>
       </tr>
     </table>
   </div>
