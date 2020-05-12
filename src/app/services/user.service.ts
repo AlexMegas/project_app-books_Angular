@@ -22,10 +22,8 @@ export class UserService {
     return this.http.post<{ token: string }>(`${this.url}/login`, user).toPromise();
   };
 
-  logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/home']);
-    return this.http.get<any>(`${this.url}/logout`) // token to be provided to backend as Header ?
+  logout(): Promise<any> {
+    return this.http.get<any>(`${this.url}/logout`).toPromise(); // token to be provided to backend as Header ?
   };
 
   loggedIn() {

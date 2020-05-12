@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.user)
       .then(res => {
         console.log(res);
-        localStorage.setItem('token', JSON.stringify(res.token)); // cannot retrieve token
+        localStorage.setItem('token', JSON.stringify(res.token));
         this.router.navigate(['/books']);
       })
   }

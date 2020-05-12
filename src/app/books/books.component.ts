@@ -12,8 +12,7 @@ export class BooksComponent implements OnInit {
   public books: IBook[] = [];
 
   constructor(private bookService: BookService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.bookService.getBooks()
@@ -26,9 +25,12 @@ export class BooksComponent implements OnInit {
     this.router.navigate(['/book', id]);
   }
 
-  navigateToDeleteBook(id) {
-    this.router.navigate(['/book', id]);
-  };
+  delBook(id) {
+    this.bookService.deleteBook(id)
+      .then(res => {
+        console.log(res)
+      });
+  }
 
   navigateToAuthor(author) {
     this.router.navigate(['/book'], { queryParams: { author: author } });
