@@ -11,13 +11,13 @@
     <table *ngIf="book">
       <tr>
         <th>Title</th>
-        <th>Public</th>
+        <th>Publik</th>
         <th>Pages</th>
         <th>Genre</th>
       </tr>
       <tr *ngFor="let book of book">
         <td>{{book.title}}</td>
-        <td>{{book.publik}}</td>
+        <td>{{book.publik | date:'dd-MMM-yyyy'}}</td>
         <td>{{book.pages}}</td>
         <td>{{book.genre}}</td>
       </tr>

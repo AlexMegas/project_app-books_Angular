@@ -22,18 +22,3 @@
 
   </form>
 </div>
-
-
-<div *ngIf="submitted">
-  <h4>You submitted the following:</h4>
-  <div>
-    <div class="subm-txt">name:</div>
-    <div>{{ user.name }}</div>
-  </div><br>
-  <div>
-    <div class="subm-txt">passw:</div>
-    <div>{{ user.passw }}</div>
-  </div>
-  <br>
-  <button (click)="submitted=false">Back</button>
-</div>

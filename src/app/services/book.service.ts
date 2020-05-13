@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { IBook } from "../models/IBook";
 
 @Injectable({
@@ -12,6 +12,10 @@ export class BookService {
 
   url: string = 'http://localhost:8080/api/books';
   public book: IBook;
+
+  addBook(newBook): Promise<{ book: IBook }> {
+    return this.http.post<{ book: IBook }>(`${this.url}`, newBook).toPromise();
+  }
 
   getBookById(id: string): Promise<{ book: IBook }> {
     return this.http.get<{ book: IBook }>(`${this.url}/${id}`).toPromise();
