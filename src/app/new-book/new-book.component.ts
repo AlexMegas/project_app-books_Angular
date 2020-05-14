@@ -18,7 +18,7 @@ export class NewBookComponent implements OnInit {
   public book: IBook = {
     author: '',
     title: '',
-    publik: new Date('1970-01-01'),
+    publik: new Date(),
     pages: 0,
     genre: ''
   };

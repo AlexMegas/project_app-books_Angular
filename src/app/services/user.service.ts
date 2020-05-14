@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
-  constructor(private http: HttpClient,
-    private router: Router) { }
+  constructor(private http: HttpClient) { }
 
   private url: string = 'http://localhost:8080/api/users';
   public user: User;
@@ -18,8 +17,8 @@ export class UserService {
     return this.http.post<{ user: User }>(`${this.url}/signup`, user).toPromise();
   };
 
-  login(user): Promise<{ token: string }> {
-    return this.http.post<{ token: string }>(`${this.url}/login`, user).toPromise();
+  login(user): Promise<{ token: string, userId: string }> {
+    return this.http.post<{ token: string, userId: string }>(`${this.url}/login`, user).toPromise();
   };
 
   logout(): Promise<any> {

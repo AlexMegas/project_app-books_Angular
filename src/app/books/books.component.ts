@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { Router } from '@angular/router';
 import { IBook } from "../models/IBook";
+import { element } from 'protractor';
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -15,11 +16,12 @@ export class BooksComponent implements OnInit {
   ) { }
 
   public books: IBook[] = [];
+  public userId = localStorage.getItem('userId');
 
   ngOnInit() {
     this.bookService.getBooks()
       .then(res => {
-        this.books = res.books;
+        this.books = res.books
       });
   }
 

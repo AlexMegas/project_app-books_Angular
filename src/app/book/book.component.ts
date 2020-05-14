@@ -10,17 +10,17 @@ import { IBook } from "../models/IBook";
 })
 export class BookComponent implements OnInit {
 
-  constructor(private bookService: BookService,
+  constructor(
+    private bookService: BookService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   public book: IBook = null;
+  public userId = localStorage.getItem('userId');
 
   ngOnInit() {
-
     let id = this.route.snapshot.paramMap.get('id');
-
     this.bookService.getBookById(id)
       .then(res => {
         this.book = res.book;

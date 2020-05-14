@@ -25,7 +25,6 @@ export class SignupComponent implements OnInit {
     this.userService.signup(this.user)
       .then(res => {
         console.log(res);
-        alert(JSON.stringify(res));
       });
   }
 }

@@ -10,21 +10,21 @@ import { IBook } from "../models/IBook";
 })
 export class AuthorComponent implements OnInit {
 
-  constructor(private bookService: BookService,
+  constructor(
+    private bookService: BookService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
   public book: IBook;
 
   ngOnInit() {
-
     let author = this.route.snapshot.queryParamMap.get('author');
     this.bookService.getBookByQuery(author)
       .then(res => {
         this.book = res.book;
       });
-
-  };
+  }
 
   gotoItems() {
     this.router.navigate(['/books']);
