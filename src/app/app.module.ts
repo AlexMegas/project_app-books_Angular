@@ -19,6 +19,7 @@ import { AuthorComponent } from './author/author.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     NotFoundComponent,
     BookComponent,
     AuthorComponent,
-    LogoutComponent
+    LogoutComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 import { IBook } from "../models/IBook";
 @Component({
   selector: 'app-books',
@@ -45,7 +45,7 @@ export class BooksComponent implements OnInit {
 
   addNewBook() {
     this.bookService.addBook(this.book)
-      .then(res => console.log(res))
+      .then(res => console.log(res));
   }
 
 }

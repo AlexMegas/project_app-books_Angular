@@ -25,6 +25,10 @@ export class BookService {
     return this.http.get<{ book: IBook }>(`${this.url}`, { params: { author: author } }).toPromise();
   }
 
+  updateBook(id: string, updBook: IBook): Promise<{ book: IBook }> {
+    return this.http.patch<{ book: IBook }>(`${this.url}/${id}`, updBook).toPromise();
+  }
+
   getBooks(): Promise<{ books: IBook[] }> {
     return this.http.get<{ books: IBook[] }>(`${this.url}`).toPromise();
   }

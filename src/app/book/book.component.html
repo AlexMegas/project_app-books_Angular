@@ -13,6 +13,7 @@
         <th>Publik</th>
         <th>Pages</th>
         <th>Genre</th>
+        <th>Service</th>
       </tr>
       <tr>
         <td>{{book.author}}</td>
@@ -20,6 +21,9 @@
         <td>{{book.publik | date:'dd-MMM-yyyy'}}</td>
         <td>{{book.pages}}</td>
         <td>{{book.genre}}</td>
+        <td>
+          <button (click)="editBook(book._id)">EDIT</button>
+        </td>
       </tr>
     </table>
   </div>

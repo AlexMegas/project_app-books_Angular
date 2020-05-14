@@ -10,12 +10,14 @@ import { BooksComponent } from './books/books.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './auth/auth.guard';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'book/edit/:id', component: EditComponent },
   { path: 'book/:id', component: BookComponent },
   { path: 'book', component: AuthorComponent },
   { path: 'books', component: BooksComponent, canActivate: [AuthGuard] },

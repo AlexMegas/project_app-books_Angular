@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BookService } from '../services/book.service';
 import { IBook } from "../models/IBook";
 
@@ -29,6 +29,10 @@ export class BookComponent implements OnInit {
 
   gotoItems() {
     this.router.navigate(['/books']);
+  }
+
+  editBook(id) {
+    this.router.navigate(['/book/edit', id]);
   }
 
 }
