@@ -9,17 +9,12 @@ import { IBook } from "../models/IBook";
 })
 export class BooksComponent implements OnInit {
 
-  public books: IBook[] = [];
-  public book: IBook = {
-    author: '',
-    title: '',
-    publik: new Date('1970-01-01'),
-    pages: 0,
-    genre: ''
-  };
+  constructor(
+    private bookService: BookService,
+    private router: Router
+  ) { }
 
-  constructor(private bookService: BookService,
-    private router: Router) { }
+  public books: IBook[] = [];
 
   ngOnInit() {
     this.bookService.getBooks()
@@ -43,9 +38,8 @@ export class BooksComponent implements OnInit {
     this.router.navigate(['/book'], { queryParams: { author: author } });
   }
 
-  addNewBook() {
-    this.bookService.addBook(this.book)
-      .then(res => console.log(res));
+  navigateToAddNewBook() {
+    this.router.navigate(['/book/new'])
   }
 
 }

@@ -4,8 +4,8 @@
 <body>
 
   <div>
-    <h3>Edit book:</h3>
-    <form (ngSubmit)="updBook()" #bookForm="ngForm">
+    <h3>Add new book:</h3>
+    <form (ngSubmit)="addNewBook()" #bookForm="ngForm">
 
       <div>
         <label for="author">Author:</label>
@@ -19,7 +19,7 @@
 
       <div>
         <label for="publik">Publik:</label>
-        <input type="date:'yyyy-MM-dd'" id="publik" [(ngModel)]="book.publik" name="publik" #publik="ngModel">
+        <input type="date" id="publik" [(ngModel)]="book.publik" name="publik" #publik="ngModel">
       </div>
 
       <div>
@@ -32,8 +32,8 @@
         <input type="text" id="genre" [(ngModel)]="book.genre" name="genre" #genre="ngModel">
       </div><br>
 
-      <button type="submit" id="upd">UPDATE</button><br><br>
-      <button id="gotoItem" (click)="gotoItem()">Cancel / Back</button>
+      <button type="submit" id="newbook">SAVE</button><br><br>
+      <button id="gotoItems" (click)="gotoItems()">Cancel / Back</button>
 
     </form>
   </div>

@@ -20,6 +20,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './auth/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { EditComponent } from './edit/edit.component';
+import { NewBookComponent } from './new-book/new-book.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { EditComponent } from './edit/edit.component';
     BookComponent,
     AuthorComponent,
     LogoutComponent,
-    EditComponent
+    EditComponent,
+    NewBookComponent
   ],
   imports: [
     BrowserModule,

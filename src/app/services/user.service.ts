@@ -23,11 +23,11 @@ export class UserService {
   };
 
   logout(): Promise<any> {
-    return this.http.get<any>(`${this.url}/logout`).toPromise(); // token to be provided to backend as Header ?
+    return this.http.get<any>(`${this.url}/logout`).toPromise();
   };
 
   loggedIn() {
-    return !!localStorage.getItem('token'); // boolean value
+    return !!localStorage.getItem('token');
   };
 
   getToken() {
