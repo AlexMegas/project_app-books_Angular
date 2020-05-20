@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { IBook } from "../models/IBook";
 
 @Injectable({
   providedIn: 'root'
@@ -6,30 +8,33 @@ import { Injectable } from '@angular/core';
 
 export class BookService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getBooks() {
-    return [
-      {
-        "author": "Author1", "title": "Title1", "publik": "2011-01-01",
-        "pages": 111, "genre": "Genre1"
-      },
-      {
-        "author": "Author2", "title": "Title2", "publik": "2012-02-02",
-        "pages": 222, "genre": "Genre2"
-      },
-      {
-        "author": "Author3", "title": "Title3", "publik": "2013-03-03",
-        "pages": 333, "genre": "Genre3"
-      },
-      {
-        "author": "Author4", "title": "Title4", "publik": "2014-04-04",
-        "pages": 444, "genre": "Genre4"
-      },
-      {
-        "author": "Author5", "title": "Title5", "publik": "2015-05-05",
-        "pages": 555, "genre": "Genre5"
-      }
-    ];
+  url: string = 'http://localhost:8080/api/books';
+  public book: IBook;
+
+  addBook(newBook): Promise<{ book: IBook }> {
+    return this.http.post<{ book: IBook }>(`${this.url}`, newBook).toPromise();
   }
+
+  getBookById(id: string): Promise<{ book: IBook }> {
+    return this.http.get<{ book: IBook }>(`${this.url}/${id}`).toPromise();
+  }
+
+  getBookByQuery(author: string): Promise<{ book: IBook }> {
+    return this.http.get<{ book: IBook }>(`${this.url}`, { params: { author: author } }).toPromise();
+  }
+
+  updateBook(id: string, updBook: IBook): Promise<{ book: IBook }> {
+    return this.http.patch<{ book: IBook }>(`${this.url}/${id}`, updBook).toPromise();
+  }
+
+  getBooks(): Promise<{ books: IBook[] }> {
+    return this.http.get<{ books: IBook[] }>(`${this.url}`).toPromise();
+  }
+
+  deleteBook(id: string): Promise<any> {
+    return this.http.delete<any>(`${this.url}/${id}`).toPromise();
+  }
+
 }

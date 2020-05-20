@@ -3,13 +3,26 @@
 
 <body>
 
+  <button (click)="navigateToAddNewBook()" id="nbook">Add new BOOK</button>
+
   <h3>List of books:</h3>
 
   <div>
-    <ul *ngFor="let book of books">
-      <li>{{book.author}}, {{book.title}}, {{book.publik}},
-        {{book.pages}}, {{book.genre}}</li>
-    </ul>
+    <table>
+      <tr>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Service</th>
+      </tr>
+      <tr *ngFor="let book of books">
+        <td (click)="navigateToAuthor(book.author)">{{book.author}}</td>
+        <td>{{book.title}}</td>
+        <td>
+          <button (click)="navigateToBook(book._id)">GoTo</button>
+          <button *ngIf="book.owner==userId" (click)="delBook(book._id)">Delete</button>
+        </td>
+      </tr>
+    </table>
   </div>
 
 </body>

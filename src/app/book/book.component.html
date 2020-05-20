@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <h2>Requested book is:</h2>
+
+  <div>
+    <table *ngIf="book">
+      <tr>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Publik</th>
+        <th>Pages</th>
+        <th>Genre</th>
+        <th *ngIf="book.owner==userId">Service</th>
+      </tr>
+      <tr>
+        <td>{{book.author}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.publik | date:'dd-MMM-yyyy'}}</td>
+        <td>{{book.pages}}</td>
+        <td>{{book.genre}}</td>
+        <td *ngIf="book.owner==userId">
+          <button (click)="editBook(book._id)">EDIT</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <br>
+  <button id="gotoItems" (click)="gotoItems()">Back</button>
+</body>
+
+</html>

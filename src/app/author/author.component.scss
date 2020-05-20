@@ -7,7 +7,7 @@ table {
 td,
 th {
   border: 1px solid #dddddd;
-  text-align: center;
+  text-align: left;
   padding: 8px;
 }
 
@@ -15,9 +15,6 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-#nbook {
-  float: right;
-  background-color: seagreen;
-  color: yellow;
-  padding: 5px;
+#gotoItems {
+  color: green;
 }

@@ -1,6 +1,6 @@
 <div *ngIf="!submitted">
   <h2>SIGNUP</h2>
-  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+  <form (ngSubmit)="userSignup()" #userForm="ngForm">
 
     <div>
       <label for="name">User name:</label><br>
@@ -14,29 +14,11 @@
 
     <div>
       <label for="passw">Password:</label><br>
-      <input type="text" id="passw" [(ngModel)]="user.password" name="passw" #password="ngModel">
-      <div class="err-msg" *ngIf="password.invalid">
-        Password is required
-      </div>
+      <input type="password" id="passw" [(ngModel)]="user.passw" name="passw" #passw="ngModel">
       <br><br>
     </div>
 
-    <button type="submit" [disabled]="userForm.form.invalid">New User</button>
+    <button type="submit" [disabled]="userForm.form.invalid">Register</button>
 
   </form>
-</div>
-
-
-<div *ngIf="submitted">
-  <h4>You submitted the following:</h4>
-  <div>
-    <div class="subm-txt">name:</div>
-    <div>{{ user.name }}</div>
-  </div><br>
-  <div>
-    <div class="subm-txt">password:</div>
-    <div>{{ user.password }}</div>
-  </div>
-  <br>
-  <button (click)="submitted=false">Edit</button>
 </div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <div>
+    <h3>Add new book:</h3>
+    <form (ngSubmit)="addNewBook()" #bookForm="ngForm">
+
+      <div>
+        <label for="author">Author:</label>
+        <input type="text" id="author" [(ngModel)]="book.author" name="author" #author="ngModel">
+      </div>
+
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" [(ngModel)]="book.title" name="title" #title="ngModel">
+      </div>
+
+      <div>
+        <label for="publik">Publik:</label>
+        <input type="date" id="publik" [(ngModel)]="book.publik" name="publik" #publik="ngModel">
+      </div>
+
+      <div>
+        <label for="pages">Pages:</label>
+        <input type="number" id="pages" [(ngModel)]="book.pages" name="pages" #pages="ngModel">
+      </div>
+
+      <div>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" [(ngModel)]="book.genre" name="genre" #genre="ngModel">
+      </div><br>
+
+      <button type="submit" id="newbook">SAVE</button><br><br>
+      <button id="gotoItems" (click)="gotoItems()">Cancel / Back</button>
+
+    </form>
+  </div>
+
+</body>
+
+</html>
